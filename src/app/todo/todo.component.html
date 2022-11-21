@@ -1,0 +1,17 @@
+<div class="todo-div">
+    <mat-checkbox (change)="onChange($event)"></mat-checkbox>
+    <h3 [appTodoDecoration]="this.todo.isChecked">
+        {{this.todo.text}}
+    </h3>
+    <div class="todo-icons">
+        <i class="fa-solid fa-comment icon" (click)="handleCommentClick(commentDiv, commentInput, commentText)"></i>
+        <i class="fa-solid fa-trash icon" (click)="handleDeleteClick()"></i>
+    </div>
+</div>
+
+<h4 #commentText class="comment">{{this.todo.comment}}</h4>
+
+<div class="comment-div" #commentDiv  style="display: none">
+    <input type="text" #commentInput>
+    <button (click)="handleCommentAdd(commentDiv, commentInput, commentText)">Add</button>
+</div>
